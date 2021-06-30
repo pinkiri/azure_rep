@@ -1,0 +1,66 @@
+{
+	"name": "NochiDaichoTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "NochiDaichoID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DaichoShikibetsushi",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ShoyushaKeieitaiID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "KosakushaKeieitaiID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NochiDAichoRenkeiID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PolygonGeometry",
+				"type": "geometry"
+			},
+			{
+				"name": "PinGeometry",
+				"type": "geometry"
+			},
+			{
+				"name": "Chiban",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Chimoku",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Menseki",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "KoshinStatus",
+				"type": "nvarchar"
+			},
+			{
+				"name": "KokaiStatus",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "NochiDaicho"
+		}
+	}
+}
