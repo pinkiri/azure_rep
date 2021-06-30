@@ -21,8 +21,12 @@
 					"name": "sink1"
 				}
 			],
-			"transformations": [],
-			"script": "source(output(\n\t\tNochiDaichoID as string,\n\t\tDaichoShikibetsushi as string,\n\t\tShoyushaKeieitaiID as string,\n\t\tKosakushaKeieitaiID as string,\n\t\tNochiDAichoRenkeiID as string,\n\t\tPolygonGeometry as binary,\n\t\tPinGeometry as binary,\n\t\tChiban as string,\n\t\tChimoku as string,\n\t\tMenseki as integer,\n\t\tKoshinStatus as string,\n\t\tKokaiStatus as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> source1\nsource1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError',\n\tmapColumn(\n\t\tNochiDaichoID,\n\t\tDaichoShikibetsushi,\n\t\tShoyushaKeieitaiID,\n\t\tKosakushaKeieitaiID,\n\t\tNochiDAichoRenkeiID,\n\t\tPolygonGeometry,\n\t\tPinGeometry,\n\t\tChiban,\n\t\tChimoku,\n\t\tMenseki,\n\t\tKoshinStatus,\n\t\tKokaiStatus\n\t)) ~> sink1"
+			"transformations": [
+				{
+					"name": "prrmit"
+				}
+			],
+			"script": "source(output(\n\t\tNochiDaichoID as string,\n\t\tDaichoShikibetsushi as string,\n\t\tShoyushaKeieitaiID as string,\n\t\tKosakushaKeieitaiID as string,\n\t\tNochiDAichoRenkeiID as string,\n\t\tPolygonGeometry as binary,\n\t\tPinGeometry as binary,\n\t\tChiban as string,\n\t\tChimoku as string,\n\t\tMenseki as integer,\n\t\tKoshinStatus as string,\n\t\tKokaiStatus as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> source1\nsource1 alterRow() ~> prrmit\nprrmit sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError',\n\tmapColumn(\n\t\tNochiDaichoID,\n\t\tDaichoShikibetsushi,\n\t\tShoyushaKeieitaiID,\n\t\tKosakushaKeieitaiID,\n\t\tNochiDAichoRenkeiID,\n\t\tPolygonGeometry,\n\t\tPinGeometry,\n\t\tChiban,\n\t\tChimoku,\n\t\tMenseki,\n\t\tKoshinStatus,\n\t\tKokaiStatus\n\t)) ~> sink1"
 		}
 	}
 }
